@@ -4,7 +4,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 class Product(db.Model):
-    product_id = db.Column(db.Integer, primary_key=True)
+    product_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String(255), nullable=False, unique=True)
 
     def serialize(self):
@@ -14,7 +14,7 @@ class Product(db.Model):
         }
 
 class Location(db.Model):
-    location_id = db.Column(db.Integer, primary_key=True)
+    location_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String(255), nullable=False, unique=True)
 
     def serialize(self):
@@ -25,8 +25,8 @@ class Location(db.Model):
 
 class ProductQuantity(db.Model):
     product_quantity_id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
-    location_id = db.Column(db.Integer, db.ForeignKey('location.location_id'), nullable=False)
+    product_id = db.Column(db.String, db.ForeignKey('product.product_id'), nullable=False)
+    location_id = db.Column(db.String, db.ForeignKey('location.location_id'), nullable=False)
     quantity = db.Column(db.Integer, default=0)
 
     def serialize(self):
@@ -39,9 +39,9 @@ class ProductQuantity(db.Model):
 
 class ProductMovement(db.Model):
     product_movement_id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
-    from_location_id = db.Column(db.Integer, db.ForeignKey('location.location_id'), nullable=False)
-    to_location_id = db.Column(db.Integer, db.ForeignKey('location.location_id'), nullable=False)
+    product_id = db.Column(db.String, db.ForeignKey('product.product_id'), nullable=False)
+    from_location_id = db.Column(db.String, nullable=True)
+    to_location_id = db.Column(db.String, nullable=True)
     qty = db.Column(db.Integer, nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
