@@ -9,8 +9,8 @@
 Import the file Inventory Management.postman_collection.json
 
 ## Screenshots
-![Dashboard](screenshots/dashboard.PNG)
-![Move Product](screenshots/move_product.PNG)
+![Dashboard](screenshots/dashboard_1.PNG)
+![Move Product](screenshots/move_product_1.PNG)
 ![Location Table](screenshots/pg_location.PNG)
 ![Products Table](screenshots/pg_products.PNG)
 ![20 Product Movement Table](screenshots/pg_product_movements.PNG)
