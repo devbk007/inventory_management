@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, Product, Location, ProductQuantity, ProductMovement
 from app import app
-from sqlalchemy import func
+import requests
 
 db.init_app(app)
 
@@ -18,7 +18,7 @@ def get_products():
 @app.route('/products', methods=['POST'])
 def create_product():
     data = request.json
-    product = Product(name=data['name'], product_id=data['id'])
+    product = Product(name=data['name'])
     db.session.add(product)
     db.session.commit()
     return jsonify(product.serialize()), 201
@@ -45,7 +45,7 @@ def get_locations():
 @app.route('/location', methods=['POST'])
 def create_location():
     data = request.json
-    location = Location(name=data['name'], location_id=data['id'])
+    location = Location(name=data['name'])
     db.session.add(location)
     db.session.commit()
     return jsonify(location.serialize()), 201

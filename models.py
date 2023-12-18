@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(255), nullable=False, unique=True)
 
     def serialize(self):
         return {
