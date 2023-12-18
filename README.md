@@ -5,6 +5,9 @@
 2. Add/Edit/View Location
 3. Add/Edit/View ProductMovement : Product Movement in and out of a location, product movement between locations.
 
+## API collection
+Import the file Inventory Management.postman_collection.json
+
 ## Screenshots
 ![Dashboard](screenshots/dashboard.PNG)
 ![Move Product](screenshots/move_product.PNG)
